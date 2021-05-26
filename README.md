@@ -1,6 +1,6 @@
 # Sistema de Clinica Veterinaria
 
-O sistema de clínica veterinária foi construído em Java 1.8 com Spring Boot 2.5.0 no backend e Angular 12 no frontend. 
+O sistema de clínica veterinária foi compilado em Java 1.8 com Spring Boot 2.5.0 no backend e Angular 12 no frontend. 
 O servidor tomcat embutido na aplicação roda na porta 8080.
 
 # O banco de dados
