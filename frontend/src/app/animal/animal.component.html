@@ -1,0 +1,119 @@
+<div class="container">				
+	<div class="row alert alert-danger" *ngIf="sistemaService.isMostrarMensagemErro()">
+		{{sistemaService.mensagemErro}}
+	</div>
+	<div class="row alert alert-success" *ngIf="sistemaService.isMostrarMensagemOk()">
+		{{sistemaService.mensagemOk}}
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h4>Dados do animal</h4>
+			<div class="form-group">
+				<span class="text-dark">Nome:</span> <span class="text-primary ml-2">{{animal.nome}}</span>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">Espécie:</span> <span class="text-primary ml-2">{{animal.especie}}</span>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">Raça:</span> <span class="text-primary ml-2">{{animal.raca}}</span>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">Data de nascimento:</span> <span class="text-primary ml-2">{{animal.dataNascimento}}</span>
+			</div>
+		</div>
+	</div>
+	
+	<br />
+
+	<div class="row">	
+		<div class="panel panel-primary col-md-12">
+			<h2 class="panel-heading">
+				Lista de tutores
+			</h2>
+					  
+			<div class="panel-body tbl-pnl-pequeno">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Telefone</th>
+							<th>E-Mail</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let t of animal.tutores">
+							<td>{{t.id}}</td>
+							<td>{{t.pessoa.nome}}</td>
+							<td>{{t.pessoa.telefone}}</td>
+							<td>{{t.pessoa.email}}</td>							
+							<td>
+								<button (click)="visualizaTutor(t.id)" class="btn btn-link text-primary m-0 p-0">visualizar</button>              
+							</td>
+							<td>
+								<button (click)="deletaTutor(t.id)" class="btn btn-link text-danger m-0 p-0">deletar</button>              
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>		  
+		</div>
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="col-md-6">			
+			<h4>Filtra tutores</h4>
+			<form (ngSubmit)="filtraTutores()">
+				<div class="form-group">
+				  <label for="nome">Nome:</label>
+				  <input type="text" class="form-control" id="nome" required [(ngModel)]="tutorNomeIni" name="nome">
+				</div>
+																			
+				<div class="form-group">
+					<button class="btn btn-success" style="margin-right: 1em">Filtrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="card col-md-6">			
+			<div class="card-body">
+				<h4 class="card-title">
+					Registre um tutor
+				</h4>
+				<form (ngSubmit)="registraTutor()">
+					<div class="form-group">
+					  <label for="nome">Nome:</label>
+					  <input type="text" class="form-control" id="nome" required [(ngModel)]="tutorCad.pessoa.nome" name="nome">
+					</div>
+										
+					<div class="form-group">
+					  <label for="telefone">Telefone:</label>
+					  <input type="text" class="form-control" id="telefone" required [(ngModel)]="tutorCad.pessoa.telefone" name="telefone">
+					</div>
+					
+					<div class="form-group">
+					  <label for="email">E-Mail:</label>
+					  <input type="email" class="form-control" id="email" required [(ngModel)]="tutorCad.pessoa.email" name="email">
+					</div>
+																
+					<div class="form-group">
+						<button class="btn btn-success" style="margin-right: 1em">Registrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+<div>

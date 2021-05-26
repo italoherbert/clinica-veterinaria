@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+.tbl-pnl-grande {
+	height: 12em;
+	display: block;
+	border: 1px solid #EEF;
+	overflow-y: scroll;
+}
+
+.tbl-pnl-medio {
+	height: 15em;
+	display: block;
+	border: 1px solid #EEF;
+	overflow-y: scroll;
+}
+
+.tbl-pnl-pequeno {
+	height: 10em;
+	display: block;
+	border: 1px solid #EEF;
+	overflow-y: scroll;
+}

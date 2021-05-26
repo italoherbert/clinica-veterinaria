@@ -1,0 +1,108 @@
+<div class="container">				
+	<div class="row alert alert-danger" *ngIf="sistemaService.isMostrarMensagemErro()">
+		{{sistemaService.mensagemErro}}
+	</div>
+	<div class="row alert alert-success" *ngIf="sistemaService.isMostrarMensagemOk()">
+		{{sistemaService.mensagemOk}}
+	</div>
+	
+	<br />
+
+	<div class="row">	
+		<div class="panel panel-primary col-md-12">
+			<h2 class="panel-heading">
+				Lista de animais
+			</h2>
+					  
+			<div class="panel-body tbl-pnl-pequeno">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Especie</th>
+							<th>Raça</th>
+							<th>Data de nascimento</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let a of animais">
+							<td>{{a.id}}</td>
+							<td>{{a.nome}}</td>
+							<td>{{a.especie}}</td>
+							<td>{{a.raca}}</td>
+							<td>{{a.dataNascimento}}</td>
+							<td>
+								<button (click)="visualiza(a.id)" class="btn btn-link text-primary m-0 p-0">visualizar</button>
+							</td>
+							<td>
+								<button (click)="deleta(a.id)" class="btn btn-link text-danger m-0 p-0">deletar</button>              
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>		  
+		</div>
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="col-md-6">			
+			<h4>Filtra animais</h4>
+			<form (ngSubmit)="filtraAnimais()">
+				<div class="form-group">
+				  <label for="nome">Nome:</label>
+				  <input type="text" class="form-control" id="nome" required [(ngModel)]="nomeIni" name="nome">
+				</div>
+																			
+				<div class="form-group">
+					<button class="btn btn-success" style="margin-right: 1em">Filtrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="card col-md-6">			
+			<div class="card-body">
+				<h4 class="card-title">
+					Registre um animal
+				</h4>
+				<form (ngSubmit)="registraAnimal()">
+					<div class="form-group">
+					  <label for="nome">Nome:</label>
+					  <input type="text" class="form-control" id="nome" required [(ngModel)]="animalCad.nome" name="nome">
+					</div>
+					
+					<div class="form-group">
+					  <label for="especie">Especie:</label>
+					  <select [(ngModel)]="animalCad.especie" name="especie" class="form-control">
+						<option value="DEFAULT" disabled selected>Selecione a espécie</option>
+						<option *ngFor="let e of especies" [value]="e">{{e}}</option>
+					  </select>
+					</div>
+					
+					<div class="form-group">
+					  <label for="raca">Raça:</label>
+					  <input type="text" class="form-control" id="raca" required [(ngModel)]="animalCad.raca" name="raca">
+					</div>
+					
+					<div class="form-group">
+					  <label for="dataNascimento">Data de nascimento:</label>
+					  <input type="date" class="form-control" id="dataNascimento" required [(ngModel)]="animalCad.dataNascimento" name="dataNascimento">
+					</div>
+																
+					<div class="form-group">
+						<button class="btn btn-success" style="margin-right: 1em">Registrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+<div>

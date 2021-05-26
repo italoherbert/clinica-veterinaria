@@ -1,0 +1,107 @@
+<div class="container">				
+	<div class="row alert alert-danger" *ngIf="sistemaService.isMostrarMensagemErro()">
+		{{sistemaService.mensagemErro}}
+	</div>
+	<div class="row alert alert-success" *ngIf="sistemaService.isMostrarMensagemOk()">
+		{{sistemaService.mensagemOk}}
+	</div>
+	
+	<br />
+
+	<div class="row">	
+		<div class="panel panel-primary col-md-12">
+			<h2 class="panel-heading">
+				Lista de consultas
+			</h2>
+					  
+			<div class="panel-body tbl-pnl-pequeno">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Data de Consulta</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let c of consultas">
+							<td>{{c.id}}</td>
+							<td>{{c.dataConsulta}}</td>
+							<td>{{c.status}}</td>
+							<td>
+								<button (click)="visualiza(c.id)" class="btn btn-link text-primary m-0 p-0">visualizar</button>
+							</td>
+							<td>
+								<button (click)="deleta(c.id)" class="btn btn-link text-danger m-0 p-0">deletar</button>              
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>		  
+		</div>
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="col-md-6">			
+			<h4>Filtra Consultas</h4>
+			<form (ngSubmit)="filtraConsultas()">
+				<div class="form-group">
+				  <label for="status">Status:</label>
+				  <select [(ngModel)]="consultaFiltro.status" name="status" class="form-control">
+					<option value="DEFAULT" selected disabled>Selecione o status</option>
+					<option *ngFor="let s of statuss" [value]="s">{{s}}</option>
+				  </select>
+				</div>
+				
+				<div class="form-group">
+				  <label for="dataConsulta">Data de consulta:</label>				  
+				  <input type="date" class="form-control" id="dataConsulta" required [(ngModel)]="consultaFiltro.dataConsulta" name="dataConsulta" />
+				</div>
+																			
+				<div class="form-group">
+					<button class="btn btn-success" style="margin-right: 1em">Filtrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="card col-md-6">			
+			<div class="card-body">
+				<h4 class="card-title">
+					Registre uma consulta
+				</h4>
+				<form (ngSubmit)="registraConsulta()">
+					<div class="form-group">
+					  <label for="consultaCad.dataConsulta">Data de consulta:</label>
+					  <input type="date" class="form-control" id="dataConsulta" required [(ngModel)]="consultaCad.dataConsulta" name="dataConsulta">
+					</div>
+					<div class="form-group">					
+						<select [(ngModel)]="consultaCad.animalId" name="animalId" class="form-control">
+						  <option [value]="-1" disabled>Selecione o animal</option>
+						  <option *ngFor="let a of animais" [value]="a.id">{{a.nome}}</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<select [(ngModel)]="consultaCad.veterinarioId" name="veterinarioId" class="form-control">
+						  <option [value]="-1" disabled>Selecione o veterinário</option>
+						  <option *ngFor="let v of veterinarios" [value]="v.id">{{v.pessoa.nome}}</option>
+						</select>	
+					</div>
+																
+					<div class="form-group">
+						<button class="btn btn-success" style="margin-right: 1em">Registrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+<div>

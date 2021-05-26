@@ -1,0 +1,99 @@
+<div class="container">				
+	<div class="row alert alert-danger" *ngIf="sistemaService.isMostrarMensagemErro()">
+		{{sistemaService.mensagemErro}}
+	</div>
+	<div class="row alert alert-success" *ngIf="sistemaService.isMostrarMensagemOk()">
+		{{sistemaService.mensagemOk}}
+	</div>
+	
+	<br />
+
+	<div class="row">	
+		<div class="panel panel-primary col-md-12">
+			<h2 class="panel-heading">
+				Lista de veterinários
+			</h2>
+					  
+			<div class="panel-body tbl-pnl-pequeno">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Telefone</th>
+							<th>E-Mail</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let v of veterinarios">
+							<td>{{v.id}}</td>
+							<td>{{v.pessoa.nome}}</td>
+							<td>{{v.pessoa.telefone}}</td>
+							<td>{{v.pessoa.email}}</td>
+							<td>
+								<button (click)="visualiza(v.id)" class="btn btn-link text-primary m-0 p-0">visualizar</button>
+							</td>
+							<td>
+								<button (click)="deleta(v.id)" class="btn btn-link text-danger m-0 p-0">deletar</button>              
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>		  
+		</div>
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="col-md-6">			
+			<h4>Filtra Veterinários</h4>
+			<form (ngSubmit)="filtraVeterinarios()">
+				<div class="form-group">
+				  <label for="nome">Nome:</label>
+				  <input type="text" class="form-control" id="nome" [(ngModel)]="nomeIni" name="nome">
+				</div>
+																			
+				<div class="form-group">
+					<button class="btn btn-success" style="margin-right: 1em">Filtrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>		
+		<div class="card col-md-6">			
+			<div class="card-body">
+				<h4 class="card-title">
+					Registre um veterinário
+				</h4>
+				<form (ngSubmit)="registraVeterinario()">
+					<div class="form-group">
+					  <label for="nome">Nome:</label>
+					  <input type="text" class="form-control" id="nome" required [(ngModel)]="veterinarioCad.pessoa.nome" name="nome">
+					</div>
+					
+					<div class="form-group">
+					  <label for="telefone">Telefone:</label>
+					  <input type="text" class="form-control" id="telefone" required [(ngModel)]="veterinarioCad.pessoa.telefone" name="telefone">
+					</div>
+					
+					<div class="form-group">
+					  <label for="email">E-Mail:</label>
+					  <input type="text" class="form-control" id="email" required [(ngModel)]="veterinarioCad.pessoa.email" name="email">
+					</div>
+					
+																
+					<div class="form-group">
+						<button class="btn btn-success" style="margin-right: 1em">Registrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+<div>

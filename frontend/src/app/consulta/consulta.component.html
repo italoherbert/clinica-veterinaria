@@ -1,0 +1,37 @@
+<div class="container">				
+	<div class="row alert alert-danger" *ngIf="sistemaService.isMostrarMensagemErro()">
+		{{sistemaService.mensagemErro}}
+	</div>
+	<div class="row alert alert-success" *ngIf="sistemaService.isMostrarMensagemOk()">
+		{{sistemaService.mensagemOk}}
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h4>Dados da consulta</h4>
+			<div class="form-group">
+				<span class="text-dark">Animal:</span> <span class="text-primary ml-2">{{consulta.animal.nome}}</span>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">Veterinário:</span> <span class="text-primary ml-2">{{consulta.veterinario.pessoa.nome}}</span>
+			</div>
+			<div class="form-group">
+				<form (ngSubmit)="salvaStatus()">
+				  <label for="status">Status:</label>
+				  <select [(ngModel)]="consulta.status" name="status" class="form-control">
+					<option *ngFor="let s of statuss" [value]="s">{{s}}</option>
+				  </select>
+				  <div class="text-right mt-md-3">
+					<button class="btn btn-primary">Salvar status</button>
+				  </div>
+				</form>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">Data de consulta:</span> <span class="text-primary ml-2">{{consulta.dataConsulta}}</span>
+			</div>
+		</div>
+	</div>	
+<div>

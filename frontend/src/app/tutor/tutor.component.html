@@ -1,0 +1,30 @@
+<div class="container">				
+	<div class="row alert alert-danger" *ngIf="sistemaService.isMostrarMensagemErro()">
+		{{sistemaService.mensagemErro}}
+	</div>
+	<div class="row alert alert-success" *ngIf="sistemaService.isMostrarMensagemOk()">
+		{{sistemaService.mensagemOk}}
+	</div>
+	
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h4>Dados do tutor</h4>
+			<div class="form-group">
+				<span class="text-dark">Nome:</span> <span class="text-primary ml-2">{{tutor.pessoa.nome}}</span>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">Telefone:</span> <span class="text-primary ml-2">{{tutor.pessoa.telefone}}</span>
+			</div>
+			<div class="form-group">
+				<span class="text-dark">E-Mail:</span> <span class="text-primary ml-2">{{tutor.pessoa.email}}</span>
+			</div>
+			
+			<div class="form-group">
+				<button class="btn btn-link p-0 m-0" (click)="navegaParaAnimal()">Voltar para animal</button>
+			</div>
+		</div>
+	</div>	
+<div>

@@ -1,0 +1,27 @@
+<div id="carregando" style="display: none; position: fixed; margin: 10em 46%; z-index: 1000">
+    <div class="spinner-border">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="card bg-dark">
+	<div class="card-body">
+		<h2 class="text-center text-white py-1">{{title}}</h2>		
+		<div class="text-center">
+			<button class="btn btn-primary mr-md-1" (click)="sistemaService.redireciona( ['consultas'] );">Consultas</button>
+			<button class="btn btn-primary mr-md-1" (click)="sistemaService.redireciona( ['animais'] );">Animais</button>
+			<button class="btn btn-primary" (click)="sistemaService.redireciona( ['veterinarios'] );">Veterinarios</button>			
+		</div>
+	</div>
+</div>	
+  
+<br />
+<div style="min-height: 40em">	
+	<router-outlet></router-outlet>
+</div>
+<br />
+<div class="card bg-dark">
+	<div class="card-body">
+		<h5 class="text-center text-white" style="padding: 0.5em">Produzido por Ítalo Herbert</h5>
+	</div>
+</div>
