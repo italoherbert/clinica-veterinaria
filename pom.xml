@@ -13,9 +13,10 @@
 	<artifactId>clinica-veterinaria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>clinica-veterinaria</name>
+	<packaging>war</packaging>
 	<description>Sistema de Gerenciamento de Processos</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
