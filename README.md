@@ -43,5 +43,5 @@ Para acessar o h2-console, após executado o projeto, utilize a seguinte url: ht
 # Limitações
 
 Não foi utilizada solução de paginação, pois, achei desnecessário para um pequeno projeto.
-Os comboboxes são carregados com todos os registros do banco de dados que ele carrega. Não houve otimização quanto a isso, achei desnecessário.
+Os comboboxes são carregados com todos os registros do banco de dados da tabela correspondente. Não houve otimização quanto a isso, achei desnecessário!
 
