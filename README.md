@@ -1,2 +1,3 @@
-# clinica-veterinaria
-Sistema de gerenciamento de clínica veterinária
+# Sistema de Clinica Veterinaria
+
+O sistema de clínica veterinária
