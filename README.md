@@ -18,6 +18,11 @@ username=sa
 
 password=
 
+Foi criada uma tabela para registrar pessoas, chamada de pessoa. Isso porque os campos do tutor e do veterinário são quase iguais. Foi configurada uma 
+relação de um-para-um entre as tabelas: veterinario e pessoa, tutor e pessoa. 
+
+Uma sujestão seria criar um relacionamento de muitos para muidos entre a tabela animal e a tabela tutor para o caso do mesmo tutor 
+ser tutor de mais de um animal. No entanto, essas tabelas foram deixadas conforme a expecificação: um-para-muitos.
 
 # Executando o projeto
 
