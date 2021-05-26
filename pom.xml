@@ -11,11 +11,13 @@
 	</parent>
 	<groupId>italo</groupId>
 	<artifactId>clinica-veterinaria</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>clinica-veterinaria</name>
 	<packaging>war</packaging>
 	<description>Sistema de Gerenciamento de Processos</description>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
@@ -43,7 +45,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -70,7 +72,7 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
 	</build>
 
