@@ -1,5 +1,7 @@
 # Sistema de Clinica Veterinaria
 
+A descrição e especificação do sistema de clínica veterinária está no arquivo CLINICA_VETERINARIA.PDF contido na raiz do projeto. Você pode baixar (ou clonar o projeto) e ler o PDF.
+
 O sistema de clínica veterinária foi compilado em Java 1.8 com Spring Boot 2.5.0 no backend e Angular 12 no frontend. 
 O servidor tomcat embutido na aplicação roda na porta 8080.
 
